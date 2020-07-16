@@ -1,0 +1,19 @@
+{
+  "name": "notifications-app",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha ./test/"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MariamMahmoud/Notifications-app.git"
+  },
+  "author": "MariamMahmoud",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/MariamMahmoud/Notifications-app/issues"
+  },
+  "homepage": "https://github.com/MariamMahmoud/Notifications-app#readme"
+}
