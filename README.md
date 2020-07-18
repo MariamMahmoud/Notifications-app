@@ -13,6 +13,7 @@ Currently Providers:
 
 [**Factory design pattern**](https://www.tutorialspoint.com/design_pattern/factory_pattern.htm), where you can create an instance of the needed provider type using it's name
 
+Models and Controllers are used to save the schema and do the needed CRUD operations on them.
 ```
 const baseProvider = new BaseProvider();
 const myProvider = baseProvider.getProvider('sms');
