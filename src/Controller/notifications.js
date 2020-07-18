@@ -1,26 +1,29 @@
 'use strict';
 
-let UserNotification = require('../Schemas/notification');
+let Notifications = require('../Models/notification');
+const DEFAULT_LIMIT = process.env.SMS_LIMIT || 100;
 
+// TODO: find red (failing) notifications for further retry
+// TODO: find only active users to save sms cost from sending to inactive users
 module.exports = {
-    create: async (req, res) => {
-        const newNotification = new Notification(req.body.notification);
-        res.json(newNotification.save())
+    create: async notification => await Notifications.create(notification),
+
+    findSMS: async () => await Notifications
+        .find( { type: 'sms', status: 'yellow' })
+        .populate({ path: 'users', select: 'phone' })
+        .sort({created_at: -1})
+        .limit(DEFAULT_LIMIT)
+        .exec(),
+
+    findPush: async () => await Notifications
+        .find({ type: 'push', status: 'yellow' })
+        .populate('users')
+        .sort({created_at: -1})
+        .exec(),
+
+    update: async (notification, color) => {
+        notification.status = color;
+
+        return Notifications.updateOne(notification)
     },
-
-    find: async (req, res) => {},
-
-    update: async (req, res) => {
-        const id = req.body.id;
-        const notification = this.find({ _id: id });
-    },
-
-    delete: async (req, res) => {},
-
-    getPendingNotifications: () =>
-        this.find({ status: 'yellow'}),
-
-    list: async (req,res) => {},
-
-    getUserNotifications: async (req, res) => {}
 };

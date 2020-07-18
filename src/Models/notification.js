@@ -17,11 +17,21 @@ const notificationSchema = new Schema({
         enum: ['green', 'red', 'yellow'],
         default: 'yellow',
     },
+    title: {
+        type: String,
+        default: 'Our beloved Swvl Customer',
+    },
     body: {
         type: String,
         required: true
     },
-
+    token: {
+        type: String,
+    },
+    timestamps: {
+        createdAt: 'created_at',
+        updatedAt: 'updated_at',
+    },
 });
 
 const Notification = mongoose.model("Notification", notificationSchema);
