@@ -1,6 +1,8 @@
 'use strict';
 
 const Transport = require('bipsms');
+const Notifications = require('../Controller/notifications');
+
 const notifierConfig = {
     // real configuration
     // username: process.env.BIPSMS_USERNAME,
@@ -16,19 +18,14 @@ class SMSProvider extends BaseProvider {
         this.transport = new Transport(notifierConfig);
     }
 
-    async notifyOne(message) {
-        return this._notify(message)
-    }
-
-    async notifyGroup(message) {
-        return this._notify(message)
-    }
-
-    async _notify(message) {
+    async notify(message) {
         try {
-            return await this.transport.sendSingleSMS(_formateMsg(message));
+            await this.transport.sendSingleSMS(_formateMsg(message));
+            return Notifications.update(message, 'green');
         } catch(error) {
             // TODO: log error
+            Notifications.update(message, 'red');
+
             const err = {
                 name: 'SMSProvider crashed',
                 details: error.stack,

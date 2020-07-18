@@ -1,10 +1,10 @@
 const SMSProvider = require('./SMSProvider');
 const PushProvider = require('./PushProvider');
+// TODO: add bulkNotify feature (different messages to different users)
 
 class NotificationsProvider {
 
-    constructor() {
-    }
+    constructor() {}
 
     getProvider(providerType) {
         if(providerType === 'sms') {
@@ -16,13 +16,8 @@ class NotificationsProvider {
         }
     }
 
-    notifyOne() {
-        throw new Error('Provider must implement a notifyOne method');
-    }
-
-
-    notifyGroup() {
-        throw new Error('Provider must implement a notifyGroup method');
+    notify() {
+        throw new Error('Provider must implement a notify method');
     }
 }
 
