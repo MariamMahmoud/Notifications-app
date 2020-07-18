@@ -2,7 +2,6 @@
 
 const baseProvider = require('../NotificationProviders/BaseProvider');
 const Notifications = require('../Controller/notifications');
-const notificationsAppBb3d5FirebaseAdminsdkEshik91828459c1 = require('../config/notifications-app-bb3d5-firebase-adminsdk-eshik-91828459c1');
 
 const _notifySMS = async(provider, notifications) => {
     const smsNotifier = provider.getProvider('sms');
@@ -40,7 +39,7 @@ module.exports = async () => {
         const provider = new baseProvider()
         await _notifyPush(provider, smsNotifications);
         await _notifySMS(provider,  pushNotifications)
-    } catch (error) {
+    } catch(error) {
         // TODO: log error
         const err = {
             name: 'Notifier service crashed',
@@ -48,7 +47,7 @@ module.exports = async () => {
             message: error.message,
         }
 
-        throw error;
+        throw err;
     }
 
 };

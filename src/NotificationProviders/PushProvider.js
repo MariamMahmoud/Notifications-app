@@ -1,7 +1,7 @@
 const admin = require('firebase-admin');
 const Notifications = require('../Controller/notifications');
 
-const serviceAccount = require('../config/notifications-app-bb3d5-firebase-adminsdk-eshik-91828459c1');
+const serviceAccount = require('../config/notifications-app-firebase-admin-config');
 admin.initializeApp({
     credential: admin.credential.cert(serviceAccount),
     databaseURL: 'https://notifications-app-bb3d5.firebaseio.com'
@@ -34,6 +34,10 @@ class PushProvider extends BaseProvider {
 
             throw err;
         }
+    }
+
+    _formatMsg(message) {
+        // TODO: format message to match the provider's schema
     }
 }
 

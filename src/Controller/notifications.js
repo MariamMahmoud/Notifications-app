@@ -17,7 +17,7 @@ module.exports = {
 
     findPush: async () => await Notifications
         .find({ type: 'push', status: 'yellow' })
-        .populate('users')
+        .populate({ path: 'users', select: 'language' })
         .sort({created_at: -1})
         .exec(),
 
