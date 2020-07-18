@@ -2,20 +2,25 @@
 
 const baseProvider = require('../NotificationProviders/BaseProvider');
 const Notifications = require('../Controller/notifications');
+const notificationsAppBb3d5FirebaseAdminsdkEshik91828459c1 = require('../config/notifications-app-bb3d5-firebase-adminsdk-eshik-91828459c1');
 
 const _notifySMS = async(provider, notifications) => {
     const smsNotifier = provider.getProvider('sms');
 
-    for await (let smsNotification of notification) {
-        smsNotifier.notify(smsNotification)
+    if(notifications.length > 0) {
+        for await (let smsNotification of notifications) {
+            smsNotifier.notify(smsNotification)
+        }
     }
 };
 
 const _notifyPush = async(provider, notifications) => {
     const pushNotifier = provider.getProvider('push');
 
-    for await (let pushNotification of notifications) {
-        pushNotifier.notify(pushNotification)
+    if(notifications.length > 0) {
+        for await (let pushNotification of notifications) {
+            pushNotifier.notify(pushNotification)
+        }
     }
 
 };
