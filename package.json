@@ -19,7 +19,9 @@
   },
   "homepage": "https://github.com/MariamMahmoud/Notifications-app#readme",
   "dependencies": {
+    "bipsms": "^0.6.9",
     "express": "^4.17.1",
+    "firebase-admin": "^9.0.0",
     "mongoose": "^5.6.1"
   },
   "devDependencies": {
