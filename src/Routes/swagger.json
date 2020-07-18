@@ -1,0 +1,91 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+      "title": "Notifications app",
+      "description": "Multiple platform Notification app using SMS and push notifications methods",
+      "version": "2.2.0"
+    },
+    "servers": [
+      {
+        "url": "http://localhost:8080"
+      }
+    ],
+    "paths": {
+      "/notify": {
+        "get": {
+          "description": "fire a notifications round, fetching pending notifications and firing them accordingly",
+          "responses": {
+            "200": {
+              "description": "Success response",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "properties": {
+                      "sucess": {
+                        "type": "boolean"
+                      },
+                      "response": {
+                        "description": "Sucess message",
+                        "type": "string"
+                      }
+                    }
+                  },
+                  "examples": {
+                    "Sucess": {
+                      "value": {
+                        "success": true,
+                        "response": "Users notified successfully"
+                      }
+                    }
+                  }
+                }
+              }
+            },
+            "500": {
+              "description": "Internal Server Error",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "properties": {
+                      "success": {
+                        "type": "boolean"
+                      },
+                      "error": {
+                        "type": "object",
+                        "properties": {
+                          "name": {
+                            "description": "name of the crashing part of the app",
+                            "type": "string"
+                          },
+                          "details": {
+                            "description": "error stack",
+                            "type": "string"
+                          },
+                          "message": {
+                            "description": "error message",
+                            "type": "string"
+                          }
+                        }
+                      }
+                    }
+                  },
+                  "examples": {
+                    "Internal Server Error": {
+                      "value": {
+                        "sucess": false,
+                        "error": {
+                          "name": "Notifier service crashed",
+                          "details": "details example",
+                          "message": "message example"
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }

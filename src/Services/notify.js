@@ -38,7 +38,9 @@ module.exports = async () => {
 
         const provider = new baseProvider()
         await _notifyPush(provider, smsNotifications);
-        await _notifySMS(provider,  pushNotifications)
+        await _notifySMS(provider,  pushNotifications);
+
+        return 'Users notified successfully'
     } catch(error) {
         // TODO: log error
         const err = {

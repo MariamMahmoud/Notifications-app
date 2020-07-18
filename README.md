@@ -1,4 +1,7 @@
 # Notifications App
+This purpose of this app is to demonstrate to how I would go about designing and the architecture of a Notifications app or a similar problem or a similar problem, the real implementation of an integration would require proper configurations an tokens. However in the app those implementations are encapsulated in the Notifications providers and can be changes with the well configured ones any time we need this app live.
+
+## Problem
 Backend implementation to sending notification to users via multiple providers
 
 Currently Providers:
@@ -6,7 +9,7 @@ Currently Providers:
     - SMS notifications  (through a simulation provider called [bipsms](https://www.npmjs.com/package/bipsms))
 
 
-## Design Pattern used
+## Design Pattern and Solution used
 
 [**Factory design pattern**](https://www.tutorialspoint.com/design_pattern/factory_pattern.htm), where you can create an instance of the needed provider type using it's name
 
