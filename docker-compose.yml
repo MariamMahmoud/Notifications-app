@@ -6,6 +6,8 @@ services:
     stdin_open: true
     ports:
       - "8080:8080"
+    env_file:
+      - ./src/config/env
     depends_on:
       - mongo
   mongo:
