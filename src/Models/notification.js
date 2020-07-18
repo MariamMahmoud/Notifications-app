@@ -1,12 +1,12 @@
 'use strict';
 
-const mongoose = require("mongoose");
+const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
 const notificationSchema = new Schema({
     user_ids: [{
         type: Schema.Types.ObjectId,
-        ref: "User"
+        ref: 'User'
     }],
     type: {
         type: String,
@@ -34,6 +34,6 @@ const notificationSchema = new Schema({
     },
 });
 
-const Notification = mongoose.model("Notification", notificationSchema);
+const Notification = mongoose.model('Notification', notificationSchema);
 
 module.exports = Notification;

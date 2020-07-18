@@ -1,6 +1,6 @@
 'use strict';
 
-const mongoose = require("mongoose");
+const mongoose = require('mongoose');
 
 // TODO: add the rest of needed user data (such as email, active flag ...etc)
 const userSchema = new mongoose.Schema({
@@ -18,6 +18,6 @@ const userSchema = new mongoose.Schema({
     },
 });
 
-const User = mongoose.model("User", userSchema);
+const User = mongoose.model('User', userSchema);
 
 module.exports = User;

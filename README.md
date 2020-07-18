@@ -3,7 +3,7 @@ Backend implementation to sending notification to users via multiple providers
 
 Currently Providers:
     - Push notifications (through firebase)
-    - SMS notifications  (through a simulation provider called bipsms)
+    - SMS notifications  (through a simulation provider called [bipsms](https://www.npmjs.com/package/bipsms))
 
 
 ## Design Pattern used
