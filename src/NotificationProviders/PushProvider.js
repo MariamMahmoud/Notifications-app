@@ -1,5 +1,5 @@
 const admin = require('firebase-admin');
-const Notifications = require('../Controller/notifications');
+const Notifications = require('../Controllers/notifications');
 
 const serviceAccount = require('../config/notifications-app-firebase-admin-config');
 admin.initializeApp({

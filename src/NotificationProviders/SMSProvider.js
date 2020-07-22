@@ -1,7 +1,7 @@
 'use strict';
 
 const Transport = require('bipsms');
-const Notifications = require('../Controller/notifications');
+const Notifications = require('../Controllers/notifications');
 
 const notifierConfig = {
     // real configuration

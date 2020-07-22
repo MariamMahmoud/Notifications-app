@@ -1,9 +1,6 @@
-const express = require('express');
-const app = express();
+const app = require('./src/Routes/notify');
 const connectDb = require('./src/config/connection');
 const PORT = 8080;
-
-const notify = require('./src/Routes/notify')(app);
 
 app.listen(PORT, function() {
     console.log(`Listening on ${PORT}`);

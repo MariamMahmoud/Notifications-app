@@ -1,7 +1,7 @@
 'use strict'
 
 const baseProvider = require('../NotificationProviders/BaseProvider');
-const Notifications = require('../Controller/notifications');
+const Notifications = require('../Controllers/notifications');
 
 const _notifySMS = async(provider, notifications) => {
     const smsNotifier = provider.getProvider('sms');
