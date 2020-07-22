@@ -1,6 +1,6 @@
 'use strict';
 
 module.exports = {
-    push: require('./PushProvider'),
-    sms: require('./SMSProvider'),
+    Push: require('./PushProvider'),
+    Sms: require('./SMSProvider'),
 };
