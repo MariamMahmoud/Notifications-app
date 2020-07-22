@@ -1,13 +1,19 @@
 'use strict';
 
 const app = require('./src/Routes/notify');
-const connectDb = require('./src/config/connection');
+
+const mongoose = require('mongoose');
+const connection = 'mongodb://mongo:27018/notifications-db';
 const PORT = 8080;
 
-app.listen(PORT, function() {
+app.listen(PORT, async function() {
     console.log(`Listening on ${PORT}`);
-
-    // connectDb().then(() => {
-    //     console.log('MongoDb connected');
-    // });
+    try {
+        await mongoose.connect(connection)
+        console.log('DB connected');
+        return true;
+    } catch(error) {
+        console.log(error);
+        throw error;
+    }
 });
