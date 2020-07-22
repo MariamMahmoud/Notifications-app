@@ -11,7 +11,7 @@ const swaggerDocument = require('./swagger.json');
 app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocument)),
 app.get('/notify', async (req, res) => {
     try {
-        const response = await notify;
+        const response = await notify();
         res.send({
             success: true,
             response,

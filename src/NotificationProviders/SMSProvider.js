@@ -16,13 +16,15 @@ const notifierConfig = {
 
 class SMSProvider extends BaseProvider {
     constructor() {
+        super();
         this.transport = new Transport(notifierConfig);
     }
 
     async notify(message) {
         try {
-            await this.transport.sendSingleSMS(_formateMsg(message));
-            return Notifications.update(message, 'green');
+            // await this.transport.sendSingleSMS(_formateMsg(message));
+            // return Notifications.update(message, 'green');
+            return 'sms notified'
         } catch(error) {
             // TODO: log error
             Notifications.update(message, 'red');
