@@ -2,6 +2,7 @@
 
 const Transport = require('bipsms');
 const Notifications = require('../Controllers/notifications');
+const BaseProvider = require('./BaseProvider');
 
 const notifierConfig = {
     // real configuration

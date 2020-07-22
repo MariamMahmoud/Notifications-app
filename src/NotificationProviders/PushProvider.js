@@ -1,5 +1,8 @@
+'use strict';
+
 const admin = require('firebase-admin');
 const Notifications = require('../Controllers/notifications');
+const BaseProvider = require('./BaseProvider');
 
 const serviceAccount = require('../config/notifications-app-firebase-admin-config');
 admin.initializeApp({
