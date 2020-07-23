@@ -4,7 +4,7 @@ const notificationsFactoryInstance = require('../NotificationProviders/Notificat
 const Notifications = require('../Controllers/notifications');
 
 module.exports = async () => {
-    const notifications = (await Notifications.findSMS()).concat(...(await Notification.findPush()));
+    const notifications = (await Notifications.findSMS()).concat(...(await Notifications.findPush()));
 
     try {
         notifications.forEach(async notification => {

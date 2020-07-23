@@ -4,11 +4,11 @@ const admin = require('firebase-admin');
 const Notifications = require('../Controllers/notifications');
 const BaseProvider = require('./BaseProvider');
 
-// const serviceAccount = require('../config/notifications-app-firebase-admin-config');
-// admin.initializeApp({
-//     credential: admin.credential.cert(serviceAccount),
-//     databaseURL: 'https://notifications-app-bb3d5.firebaseio.com'
-//   });
+const serviceAccount = require('../config/notifications-app-firebase-admin-config');
+admin.initializeApp({
+    credential: admin.credential.cert(serviceAccount),
+    databaseURL: 'https://notifications-app-bb3d5.firebaseio.com'
+  });
 
 
 class PushProvider extends BaseProvider {
@@ -19,12 +19,12 @@ class PushProvider extends BaseProvider {
 
     async notify(message) {
         try {
-            // if(message.users.length == 1) {
-            //     this.admin.messaging.send(message);
-            //     return Notifications.update(message, 'green');
-            // } else {
-            //     // TODO: notify many
-            // }
+            if(message.users.length == 1) {
+                this.admin.messaging.send(message);
+                return Notifications.update(message, 'green');
+            } else {
+                // TODO: notify many
+            }
             return 'push notification'
         } catch(error) {
             // TODO: log error

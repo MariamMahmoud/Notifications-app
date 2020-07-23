@@ -2,7 +2,7 @@ module.exports = {
   type: 'service_account',
   project_id: 'notifications-app-bb3d5',
   private_key_id: process.env.FIREHOSE_KEY_ID,
-  private_key: process.env.FIREHOSE_KEY,
+  private_key: process.env.FIREHOSE_KEY.replace(/\\n/g, '\n'),
   client_email: 'firebase-adminsdk-eshik@notifications-app-bb3d5.iam.gserviceaccount.com',
   client_id: '114860668211531873069',
   auth_uri: 'https://accounts.google.com/o/oauth2/auth',
