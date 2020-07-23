@@ -15,7 +15,7 @@ describe('Controllers/Users', () => {
             language: 'ar',
         });
 
-        return expect(_.omit(response, ['_id', '__v'])).to.deep.equal({
+        return expect(_.pick(response, ['username', 'phone', 'language'])).to.deep.equal({
             username: 'MariamMahmoud',
             phone: '00202222221111',
             language: 'ar',
@@ -29,7 +29,7 @@ describe('Controllers/Users', () => {
             phone: '00202222221111',
         });
 
-        return expect(_.omit(response, ['_id', '__v'])).to.deep.equal({
+        return expect(_.pick(response, ['username', 'phone', 'language'])).to.deep.equal({
             username: 'MariamMahmoud',
             phone: '00202222221111',
             language: 'en',
@@ -41,7 +41,7 @@ describe('Controllers/Users', () => {
             username: 'MariamMahmoud',
         });
 
-        return expect(response).to.be.eventually.rejectedWith(Error)
+        return expect(promise).to.be.eventually.rejectedWith(Error)
             .that.is.an.instanceOf('ValidationError')
             .and.has.property('message')
             .that.equals('User validation failed: phone: Path `phone` is required');
