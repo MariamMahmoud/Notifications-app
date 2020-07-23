@@ -1,10 +1,11 @@
 const usersController = require('../../src/Controllers/users');
-const chai = require('chai');
-const expect = chai.expect;
+const { expect, connectDB } = require('../Helpers/helper');
+const _ = require('lodash');
 
 describe('Controllers/Users', () => {
-    before(() => {
+    before(async() => {
         // TODO: flush db
+        await connectDB();
     });
 
     it('should insert user', async() =>{
@@ -14,7 +15,11 @@ describe('Controllers/Users', () => {
             language: 'ar',
         });
 
-        return expect(response).to.deep.equal('the expected response goes here')
+        return expect(_.omit(response, ['_id', '__v'])).to.deep.equal({
+            username: 'MariamMahmoud',
+            phone: '00202222221111',
+            language: 'ar',
+        });
     });
 
 
@@ -24,7 +29,11 @@ describe('Controllers/Users', () => {
             phone: '00202222221111',
         });
 
-        return expect(response).to.deep.equal('the expected response goes here')
+        return expect(_.omit(response, ['_id', '__v'])).to.deep.equal({
+            username: 'MariamMahmoud',
+            phone: '00202222221111',
+            language: 'en',
+        })
     });
 
     it('should not insert user with no phone number', async() =>{
@@ -32,8 +41,9 @@ describe('Controllers/Users', () => {
             username: 'MariamMahmoud',
         });
 
-        expect(response).to.be.eventually.rejectedWith('rejection error');
-
-        return promise;
+        return expect(response).to.be.eventually.rejectedWith(Error)
+            .that.is.an.instanceOf('ValidationError')
+            .and.has.property('message')
+            .that.equals('User validation failed: phone: Path `phone` is required');
     });
 })
