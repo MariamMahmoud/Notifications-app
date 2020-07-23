@@ -11,13 +11,12 @@ Currently Providers:
 
 ## Design Pattern and Solution used
 
-[**Factory design pattern**](https://www.tutorialspoint.com/design_pattern/factory_pattern.htm), where you can create an instance of the needed provider type using it's name
+- [**Factory design pattern**](https://www.tutorialspoint.com/design_pattern/factory_pattern.htm), where you can create an instance of the needed provider type using it's name
+
+- As we only need one object from each type to fire the notification, so **Singleton** design pattern was used in the `NotificationsFactory` class to create only one instance from each notifications provider as to optimize memory.
 
 Models and Controllers are used to save the schema and do the needed CRUD operations on them.
-```
-const baseProvider = new BaseProvider();
-const myProvider = baseProvider.getProvider('sms');
-```
+
 
 note: calling non existing provider types will throw an error.
 
