@@ -4,10 +4,11 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "mocha test/**/*.js",
+    "test": "mocha test/**/*.js --exit",
     "start": "node server.js",
     "startJob": "node ./src/Jobs/notify",
-    "docker-server": "docker-compose up --build"
+    "docker-server": "docker-compose up --build",
+    "docker-bash": "docker exec -it notifications-app_web_1 bash"
   },
   "repository": {
     "type": "git",
