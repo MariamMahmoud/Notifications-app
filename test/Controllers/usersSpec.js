@@ -42,8 +42,7 @@ describe('Controllers/Users', () => {
         });
 
         return expect(promise).to.be.eventually.rejectedWith(Error)
-            .that.is.an.instanceOf('ValidationError')
             .and.has.property('message')
-            .that.equals('User validation failed: phone: Path `phone` is required');
+            .that.equals('User validation failed: phone: Path `phone` is required.');
     });
 })
