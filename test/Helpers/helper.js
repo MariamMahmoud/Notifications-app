@@ -9,6 +9,7 @@ module.exports = {
     expect,
     connectDB: async() => {
         const connection = process.env.MONOG_URL;
+        console.log({connection})
         await mongoose.connect(connection);
     }
 };
