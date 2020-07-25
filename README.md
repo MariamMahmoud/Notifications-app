@@ -1,4 +1,6 @@
 # Notifications App
+[![CircleCI](https://circleci.com/gh/circleci/circleci-docs.svg?style=shield)](https://circleci.com/gh/MariamMahmoud/Notiications-app)
+
 This purpose of this app is to demonstrate to how I would go about designing and the architecture of a Notifications app or a similar problem or a similar problem, the real implementation of an integration would require proper configurations an tokens. However in the app those implementations are encapsulated in the Notifications providers and can be changes with the well configured ones any time we need this app live.
 
 ## Problem
