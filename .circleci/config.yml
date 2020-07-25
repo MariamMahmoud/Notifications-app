@@ -8,6 +8,8 @@ jobs:
       - image: mongo
     executor:
       name: node/default
+    environment: 
+      - MONGO_URL: "mongodb://localhost:27017/notifications-test-db"
     steps:
       - checkout
       - node/with-cache:
