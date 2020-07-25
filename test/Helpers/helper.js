@@ -8,7 +8,7 @@ const mongoose = require('mongoose');
 module.exports = {
     expect,
     connectDB: async() => {
-        const connection = 'mongodb://mongo:27017/notifications-test-db';
+        const connection = process.env.MONOG_URL;
         await mongoose.connect(connection);
     }
 };

@@ -3,7 +3,7 @@
 const app = require('./src/Routes/notify');
 
 const mongoose = require('mongoose');
-const connection = 'mongodb://mongo:27017/notifications-db';
+const connection = process.env.MONOG_URL;
 const PORT = 8080;
 
 app.listen(PORT, async function() {
