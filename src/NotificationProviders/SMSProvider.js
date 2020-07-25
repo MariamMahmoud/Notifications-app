@@ -22,7 +22,7 @@ class SMSProvider extends BaseProvider {
 
 	async notify(message) {
 		try {
-			const response = await this.transport.sendSingleSMS(_formateMsg(message));
+			const response = await this.transport.sendSingleSMS(this._formatMsg(message));
 			Notifications.update(message, 'green');
 
 			return response;

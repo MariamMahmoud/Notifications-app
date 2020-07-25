@@ -1,6 +1,7 @@
 'use strict';
 
 let Notifications = require('../Models/notification');
+// eslint-disable-next-line no-undef
 const DEFAULT_LIMIT = process.env.SMS_LIMIT || 100;
 
 // TODO: find red (failing) notifications for further retry

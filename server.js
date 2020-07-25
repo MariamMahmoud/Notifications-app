@@ -3,6 +3,7 @@
 const app = require('./src/Routes/notify');
 
 const mongoose = require('mongoose');
+// eslint-disable-next-line no-undef
 const connection = process.env.MONOG_URL;
 const PORT = 8080;
 
