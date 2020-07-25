@@ -10,24 +10,24 @@ const swaggerDocument = require('./swagger.json');
 
 app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocument)),
 app.get('/notify', async (req, res) => {
-    try {
-        const response = await notify();
-        res.send({
-            success: true,
-            response,
-        });
-    } catch(error) {
-        const err = {
-            name: 'API Notifier crashed',
-            details: error.stack,
-            message: error.message,
-        }
+	try {
+		const response = await notify();
+		res.send({
+			success: true,
+			response,
+		});
+	} catch(error) {
+		const err = {
+			name: 'API Notifier crashed',
+			details: error.stack,
+			message: error.message,
+		};
 
-        res.send({
-            success: false,
-            error: err,
-        });
-    }
+		res.send({
+			success: false,
+			error: err,
+		});
+	}
 });
 
 module.exports = app;
