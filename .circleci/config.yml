@@ -6,6 +6,8 @@ jobs:
     docker:
       - image: node:12
       - image: mongo
+        ports:
+          - "27017:27017"
     executor:
       name: node/default
     steps:
