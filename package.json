@@ -8,7 +8,9 @@
     "start": "node server.js",
     "startJob": "node ./src/Jobs/notify",
     "docker-server": "docker-compose up --build",
-    "docker-bash": "docker exec -it notifications-app_web_1 bash"
+    "docker-bash": "docker exec -it notifications-app_web_1 bash",
+    "lint": "./node_modules/.bin/eslint .",
+    "lint-fix": "./node_modules/.bin/eslint . --fix"
   },
   "repository": {
     "type": "git",
